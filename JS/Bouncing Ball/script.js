@@ -13,14 +13,16 @@ function Circle(x, y, r, dx, dy){
 	this.y = y;
 	this.dx = dx;
 	this.dy = dy;
-
+	
 	
 
 	this.draw = function(){
 		c.beginPath();
 		c.arc(this.x, this.y, this.r, 0, Math.PI * 2, false);
 		c.stroke();
-		c.fillStyle = "black";
+		if(this.y + this.r > canvas.height && dx !== 564){
+			c.fillStyle = this.randomColor();
+		}
 		c.fill();
 	}
 
@@ -40,7 +42,7 @@ function Circle(x, y, r, dx, dy){
 		this.x += this.dx
 		this.y += this.dy;
 		
-		console.log(this.dy);
+		console.log(this.x);
 
 		this.draw();
 	}
